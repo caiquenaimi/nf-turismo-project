@@ -23,9 +23,9 @@ python -m http.server 8080
 
 Depois abra http://localhost:8080
 
-## Publicar (grátis)
+## Publicação
 
-- **Netlify:** entre em app.netlify.com/drop e arraste a pasta do projeto.
-- **GitHub Pages:** suba a pasta num repositório e ative Pages em Settings → Pages.
+O site fica no ar pelo GitHub Pages: https://caiquenaimi.github.io/nf-turismo-project/
 
-Depois de editar `roteiros.js`, é só subir o arquivo de novo.
+Para atualizar, edite o `roteiros.js` (até pelo lápis no site do GitHub) e salve/faça push na `main`.
+Em um ou dois minutos o site atualiza sozinho.
