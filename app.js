@@ -42,11 +42,14 @@ function render() {
       (r) => `
     <article class="card">
       <a href="#roteiro-${esc(r.id)}" class="card-link">
-        <div class="card-img"><img src="${esc(imagem(r))}" alt="" loading="lazy" class="${r.imagem ? "" : "sem-foto"}"><span class="etiqueta">${esc(r.categoria)}</span></div>
-        <div class="card-corpo">
+        <div class="card-img">
+          <img src="${esc(imagem(r))}" alt="" loading="lazy" class="${r.imagem ? "" : "sem-foto"}">
+          <span class="etiqueta">${esc(r.categoria)}</span>
           <h3>${esc(r.titulo)}</h3>
-          <p class="local">${esc(r.local)} · ${esc(r.duracao)}</p>
-          <div class="card-rodape"><span class="preco">${esc(r.preco)}</span><span class="mais">Ver detalhes →</span></div>
+        </div>
+        <div class="card-info">
+          <span class="local">${esc(r.local)}, ${esc(r.duracao)}</span>
+          <span class="preco">${esc(r.preco)}</span>
         </div>
       </a>
     </article>`
@@ -58,29 +61,44 @@ function render() {
 // Cada roteiro tem link próprio (ex: site.com/#roteiro-balbina) para compartilhar no Instagram
 function abrirDoHash() {
   const r = roteiros.find((x) => location.hash === `#roteiro-${x.id}`);
-  if (!r) return dialog.open && dialog.close();
+  if (!r) return dialog.open && fecharAnimado();
   document.getElementById("detalhe-conteudo").innerHTML = `
-    <img src="${esc(imagem(r))}" alt="${esc(r.titulo)}" class="${r.imagem ? "" : "sem-foto"}">
+    <div class="detalhe-img"><img src="${esc(imagem(r))}" alt="${esc(r.titulo)}" class="${r.imagem ? "" : "sem-foto"}"></div>
     <div class="detalhe-corpo">
-      <p class="sobretitulo">${esc(r.categoria)}</p>
+      <p class="categoria">${esc(r.categoria)}</p>
       <h2 id="detalhe-titulo">${esc(r.titulo)}</h2>
-      <ul class="fatos">
-        <li><span>Local</span>${esc(r.local)}</li>
-        <li><span>Duração</span>${esc(r.duracao)}</li>
-        <li><span>Valor</span>${esc(r.preco)}</li>
-        ${r.datas ? `<li><span>Datas</span>${esc(r.datas)}</li>` : ""}
-      </ul>
+      <dl class="fatos">
+        <div><dt>Local</dt><dd>${esc(r.local)}</dd></div>
+        <div><dt>Duração</dt><dd>${esc(r.duracao)}</dd></div>
+        <div><dt>Valor</dt><dd>${esc(r.preco)}</dd></div>
+        ${r.datas ? `<div><dt>Datas</dt><dd>${esc(r.datas)}</dd></div>` : ""}
+      </dl>
       ${String(r.descricao ?? "").split("\n").map((p) => `<p>${esc(p)}</p>`).join("")}
       ${r.inclui?.length ? `<h3>O que inclui</h3><ul class="inclui">${r.inclui.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>` : ""}
       <a class="botao botao-zap" target="_blank" rel="noopener" href="${zap(`Olá! Tenho interesse no roteiro ${r.titulo} (${r.local}). Pode me passar mais informações?`)}">Quero esse roteiro</a>
     </div>`;
-  if (!dialog.open) dialog.showModal();
+  dialog.classList.remove("fechando");
+  if (!dialog.open) {
+    dialog.showModal();
+    dialog.scrollTop = 0;
+  }
+}
+
+// espera a animação de saída (style.css: .fechando) antes de fechar de fato
+function fecharAnimado() {
+  if (dialog.classList.contains("fechando")) return;
+  dialog.classList.add("fechando");
+  const tempo = matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 250;
+  setTimeout(() => {
+    dialog.close();
+    dialog.classList.remove("fechando");
+  }, tempo);
 }
 
 function fechar() {
   // volta para a lista sem pular a página para o topo
   history.pushState("", "", location.pathname + location.search + "#roteiros");
-  dialog.close();
+  fecharAnimado();
 }
 dialog.querySelector(".fechar").addEventListener("click", fechar);
 dialog.addEventListener("click", (e) => e.target === dialog && fechar());
