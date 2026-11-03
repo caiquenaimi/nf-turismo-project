@@ -104,7 +104,7 @@ a { color: var(--azul); }
 }
 .card-info { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: .9rem .2rem 0; }
 .card-info .local { color: var(--suave); }
-.preco { font-weight: 800; font-size: 1.2rem; color: var(--texto); white-space: nowrap; }
+.consultar { font-weight: 700; color: var(--vermelho); white-space: nowrap; }
 img.sem-foto { object-fit: contain !important; padding: 18% 12% 30%; background: var(--papel); }
 .vazio { color: var(--suave); }
 

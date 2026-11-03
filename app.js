@@ -49,7 +49,7 @@ function render() {
         </div>
         <div class="card-info">
           <span class="local">${esc(r.local)}, ${esc(r.duracao)}</span>
-          <span class="preco">${esc(r.preco)}</span>
+          <span class="consultar">Ver detalhes</span>
         </div>
       </a>
     </article>`
@@ -70,12 +70,11 @@ function abrirDoHash() {
       <dl class="fatos">
         <div><dt>Local</dt><dd>${esc(r.local)}</dd></div>
         <div><dt>Duração</dt><dd>${esc(r.duracao)}</dd></div>
-        <div><dt>Valor</dt><dd>${esc(r.preco)}</dd></div>
         ${r.datas ? `<div><dt>Datas</dt><dd>${esc(r.datas)}</dd></div>` : ""}
       </dl>
       ${String(r.descricao ?? "").split("\n").map((p) => `<p>${esc(p)}</p>`).join("")}
       ${r.inclui?.length ? `<h3>O que inclui</h3><ul class="inclui">${r.inclui.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>` : ""}
-      <a class="botao botao-zap" target="_blank" rel="noopener" href="${zap(`Olá! Tenho interesse no roteiro ${r.titulo} (${r.local}). Pode me passar mais informações?`)}">Quero esse roteiro</a>
+      <a class="botao botao-zap" target="_blank" rel="noopener" href="${zap(`Olá! Tenho interesse no roteiro ${r.titulo} (${r.local}). Pode me passar valores e próximas datas?`)}">Consultar valores no WhatsApp</a>
     </div>`;
   dialog.classList.remove("fechando");
   if (!dialog.open) {

@@ -27,7 +27,6 @@ const ROTEIROS = [
     local: "Amazonas",
     categoria: "Pescaria",
     duracao: "4 dias",
-    preco: "R$ 4.599",
     datas: "Consulte as próximas saídas",
     imagem: "img/balbina.jpg",
     descricao:
@@ -41,7 +40,6 @@ const ROTEIROS = [
     local: "Goiás",
     categoria: "Terceira Idade",
     duracao: "3 dias",
-    preco: "R$ 6.599",
     datas: "Consulte as próximas saídas",
     imagem: "img/caldas-novas.jpg",
     descricao:
@@ -55,7 +53,6 @@ const ROTEIROS = [
     local: "Argentina",
     categoria: "Pescaria",
     duracao: "7 dias",
-    preco: "R$ 6.880",
     datas: "Consulte as próximas saídas",
     imagem: "img/itaibate.png",
     descricao:
@@ -69,7 +66,6 @@ const ROTEIROS = [
     local: "Mato Grosso",
     categoria: "Pescaria",
     duracao: "5 dias",
-    preco: "R$ 5.999",
     datas: "Consulte as próximas saídas",
     imagem: "", // sem foto ainda: o site mostra o logo no lugar
     descricao:
