@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>N&amp;F Turismo e Eventos de Pesca</title>
+  <meta name="description" content="Roteiros de pescaria e viagens com a N&F Turismo. Viaje com quem conhece na prática.">
+  <link rel="icon" type="image/png" href="img/icone.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Archivo+Narrow:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <a href="#inicio" class="marca"><img src="img/logo.png" alt="N&amp;F Turismo e Eventos de Pesca"></a>
+    <nav>
+      <a href="#roteiros">Roteiros</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a class="botao botao-zap js-zap" href="#" target="_blank" rel="noopener">WhatsApp</a>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="hero-texto">
+        <p class="sobretitulo">Turismo e eventos de pesca</p>
+        <h1 class="js-slogan">Viaje com quem conhece na prática</h1>
+        <p>Pescarias, viagens em grupo e roteiros completos, com acompanhamento do começo ao fim.</p>
+        <div class="hero-acoes">
+          <a class="botao" href="#roteiros">Ver roteiros</a>
+          <a class="botao botao-claro js-zap" href="#" target="_blank" rel="noopener">Falar com a gente</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="roteiros" class="secao">
+      <div class="secao-cabecalho">
+        <h2>Nossos roteiros</h2>
+        <input id="busca" type="search" placeholder="Buscar destino…" aria-label="Buscar destino">
+      </div>
+      <div id="filtros" class="filtros" role="group" aria-label="Filtrar por tipo"></div>
+      <div id="lista" class="lista"></div>
+      <p id="vazio" class="vazio" hidden>Nenhum roteiro encontrado. <a class="js-zap" href="#" target="_blank" rel="noopener">Pergunte pelo WhatsApp</a> — montamos a viagem para você.</p>
+    </section>
+
+    <section id="sobre" class="secao sobre">
+      <h2>Por que viajar com a N&amp;F</h2>
+      <div class="pilares">
+        <div><strong>Experiência real</strong><p>Conhecemos cada destino na prática — não vendemos o que não vivemos.</p></div>
+        <div><strong>Tudo organizado</strong><p>Hospedagem, transporte e passeios resolvidos. Você só aproveita.</p></div>
+        <div><strong>Atendimento direto</strong><p>Fala direto com a gente pelo WhatsApp, antes, durante e depois da viagem.</p></div>
+      </div>
+    </section>
+
+    <section id="contato" class="secao contato">
+      <h2>Vamos planejar sua próxima viagem?</h2>
+      <p>Tire dúvidas, consulte datas e reserve sua vaga.</p>
+      <div class="hero-acoes">
+        <a class="botao botao-zap js-zap" href="#" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+        <a class="botao botao-claro js-insta" href="#" target="_blank" rel="noopener">Instagram</a>
+        <a class="botao botao-claro js-face" href="#" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>&copy; <span id="ano"></span> <span class="js-nome">N&amp;F Turismo</span>. Todos os direitos reservados.</p>
+  </footer>
+
+  <dialog id="detalhe" aria-labelledby="detalhe-titulo">
+    <button class="fechar" aria-label="Fechar">&times;</button>
+    <div id="detalhe-conteudo"></div>
+  </dialog>
+
+  <script src="roteiros.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
