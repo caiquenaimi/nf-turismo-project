@@ -73,7 +73,8 @@ function abrirDoHash() {
         ${r.datas ? `<div><dt>Datas</dt><dd>${esc(r.datas)}</dd></div>` : ""}
       </dl>
       ${String(r.descricao ?? "").split("\n").map((p) => `<p>${esc(p)}</p>`).join("")}
-      ${r.inclui?.length ? `<h3>O que inclui</h3><ul class="inclui">${r.inclui.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>` : ""}
+      ${r.programacao?.length ? `<h3>Dia a dia</h3><ol class="programacao">${r.programacao.map((d, i) => `<li><strong>${i + 1}º dia</strong>${esc(d)}</li>`).join("")}</ol>` : ""}
+      ${r.inclui?.length ?`<h3>O que inclui</h3><ul class="inclui">${r.inclui.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>` : ""}
       <a class="botao botao-zap" target="_blank" rel="noopener" href="${zap(`Olá! Tenho interesse no roteiro ${r.titulo} (${r.local}). Pode me passar valores e próximas datas?`)}">Consultar valores no WhatsApp</a>
     </div>`;
   dialog.classList.remove("fechando");

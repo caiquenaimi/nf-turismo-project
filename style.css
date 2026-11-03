@@ -148,6 +148,9 @@ dialog.fechando::backdrop { animation: escurecer .25s ease-in reverse forwards; 
 .fatos dt { font-size: .85rem; color: var(--suave); font-weight: 400; }
 .fatos dd { margin: 0; }
 .detalhe-corpo h3 { font-size: 1.25rem; margin-top: 1.5rem; }
+.programacao { list-style: none; padding: 0; margin: 0; }
+.programacao li { padding: .7rem 0 .7rem 1rem; border-left: 3px solid var(--linha); }
+.programacao strong { display: block; color: var(--azul); }
 .inclui { padding-left: 1.2rem; margin: 0; }
 .inclui li::marker { color: var(--vermelho); }
 .detalhe-corpo .botao { margin-top: 1.75rem; width: 100%; text-align: center; font-size: 1.1rem; }
